@@ -15,13 +15,21 @@ class Vehicle;
 // Also, the class should define an std::dequeue called _queue, which stores objects of type TrafficLightPhase. 
 // Also, there should be an std::condition_variable as well as an std::mutex as private members. 
 
+// https://github.com/EricHodgins/CppND-Program-a-Concurrent-Traffic-Simulation/blob/master/src/TrafficLight.h
+enum TrafficLightPhase { red, green };
+
+// https://github.com/AbhishekRepos/CppND-Program-a-Concurrent-Traffic-Simulation/blob/master/src/TrafficLight.h
 template <class T>
 class MessageQueue
 {
-public:
+  public:
+    void send(T&& msg);
+    T receive();
 
-private:
-    
+  private:
+    std::deque<T> _queue{};
+    std::condition_variable _condition;
+    std::mutex _mutex;
 };
 
 // FP.1 : Define a class „TrafficLight“ which is a child class of TrafficObject. 
@@ -30,17 +38,22 @@ private:
 // can be either „red“ or „green“. Also, add the private method „void cycleThroughPhases()“. 
 // Furthermore, there shall be the private member _currentPhase which can take „red“ or „green“ as its value. 
 
-class TrafficLight
+// https://github.com/AbhishekRepos/CppND-Program-a-Concurrent-Traffic-Simulation/blob/master/src/TrafficLight.h
+class TrafficLight : public TrafficObject
 {
 public:
     // constructor / desctructor
-
+    TrafficLight();
     // getters / setters
-
+    TrafficLightPhase getCurrentPhase();
     // typical behaviour methods
+    void waitForGreen();
+    void simulate();
 
 private:
     // typical behaviour methods
+    void cycleThroughPhases();
+    TrafficLightPhase _currentPhase;
 
     // FP.4b : create a private member of type MessageQueue for messages of type TrafficLightPhase 
     // and use it within the infinite loop to push each new TrafficLightPhase into it by calling 
