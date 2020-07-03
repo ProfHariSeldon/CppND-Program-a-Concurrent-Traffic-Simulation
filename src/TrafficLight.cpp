@@ -2,6 +2,10 @@
 #include <random>
 #include "TrafficLight.h"
 
+// https://github.com/AbhishekRepos/CppND-Program-a-Concurrent-Traffic-Simulation/blob/master/src/TrafficLight.cpp
+#include <chrono>
+#include <future>
+
 /* Implementation of class "MessageQueue" */
 
 /* 
@@ -41,9 +45,13 @@ TrafficLightPhase TrafficLight::getCurrentPhase()
     return _currentPhase;
 }
 
+*/
+
 void TrafficLight::simulate()
 {
     // FP.2b : Finally, the private method „cycleThroughPhases“ should be started in a thread when the public method „simulate“ is called. To do this, use the thread queue in the base class. 
+    // https://github.com/AbhishekRepos/CppND-Program-a-Concurrent-Traffic-Simulation/blob/master/src/TrafficLight.cpp
+    threads.emplace_back(std::thread{&TrafficLight::cycleThroughPhases, this});
 }
 
 // virtual function which is executed in a thread
@@ -53,6 +61,32 @@ void TrafficLight::cycleThroughPhases()
     // and toggles the current phase of the traffic light between red and green and sends an update method 
     // to the message queue using move semantics. The cycle duration should be a random value between 4 and 6 seconds. 
     // Also, the while-loop should use std::this_thread::sleep_for to wait 1ms between two cycles. 
-}
+    // https://github.com/AbhishekRepos/CppND-Program-a-Concurrent-Traffic-Simulation/blob/master/src/TrafficLight.cpp
+    std::random_device ran_dev;
+    std::mt19937 gen(ran_dev());
+    std::uniform_int_distribution<> distr(4000, 6000);
 
-*/
+    while (true)
+    {
+        auto startTime = std::chrono::system_clock::now();
+        std::this_thread::sleep_for(std::chrono::milliseconds(distr(gen)));
+        if (_currentPhase == TrafficLightPhase::red)
+        {
+            _currentPhase = TrafficLightPhase::green;
+        }
+        else
+        {
+            _currentPhase = TrafficLightPhase::red;
+        }
+        auto endTime = std::chrono::system_clock::now();
+        std::chrono::duration<double, std::milli> elapsedTime = endTime - startTime;
+        auto msg = _currentPhase;
+        auto is_sent = std::async(std::launch::async, 
+                                  &MessageQueue<TrafficLightPhase>::send, 
+                                  &_trafficLightQueue, 
+                                  std::move(msg));
+        is_sent.wait();
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(1));
+    }
+}
