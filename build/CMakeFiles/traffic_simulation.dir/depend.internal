@@ -5,6 +5,7 @@ CMakeFiles/traffic_simulation.dir/src/Graphics.cpp.o
  /home/workspace/CppND-Program-a-Concurrent-Traffic-Simulation/src/Graphics.cpp
  /home/workspace/CppND-Program-a-Concurrent-Traffic-Simulation/src/Graphics.h
  /home/workspace/CppND-Program-a-Concurrent-Traffic-Simulation/src/Intersection.h
+ /home/workspace/CppND-Program-a-Concurrent-Traffic-Simulation/src/TrafficLight.h
  /home/workspace/CppND-Program-a-Concurrent-Traffic-Simulation/src/TrafficObject.h
  /usr/local/include/opencv4/opencv2/calib3d.hpp
  /usr/local/include/opencv4/opencv2/core.hpp
@@ -134,12 +135,14 @@ CMakeFiles/traffic_simulation.dir/src/Intersection.cpp.o
  /home/workspace/CppND-Program-a-Concurrent-Traffic-Simulation/src/Intersection.cpp
  /home/workspace/CppND-Program-a-Concurrent-Traffic-Simulation/src/Intersection.h
  /home/workspace/CppND-Program-a-Concurrent-Traffic-Simulation/src/Street.h
+ /home/workspace/CppND-Program-a-Concurrent-Traffic-Simulation/src/TrafficLight.h
  /home/workspace/CppND-Program-a-Concurrent-Traffic-Simulation/src/TrafficObject.h
  /home/workspace/CppND-Program-a-Concurrent-Traffic-Simulation/src/Vehicle.h
 CMakeFiles/traffic_simulation.dir/src/Street.cpp.o
  /home/workspace/CppND-Program-a-Concurrent-Traffic-Simulation/src/Intersection.h
  /home/workspace/CppND-Program-a-Concurrent-Traffic-Simulation/src/Street.cpp
  /home/workspace/CppND-Program-a-Concurrent-Traffic-Simulation/src/Street.h
+ /home/workspace/CppND-Program-a-Concurrent-Traffic-Simulation/src/TrafficLight.h
  /home/workspace/CppND-Program-a-Concurrent-Traffic-Simulation/src/TrafficObject.h
  /home/workspace/CppND-Program-a-Concurrent-Traffic-Simulation/src/Vehicle.h
 CMakeFiles/traffic_simulation.dir/src/TrafficLight.cpp.o
@@ -153,6 +156,7 @@ CMakeFiles/traffic_simulation.dir/src/TrafficSimulator-Final.cpp.o
  /home/workspace/CppND-Program-a-Concurrent-Traffic-Simulation/src/Graphics.h
  /home/workspace/CppND-Program-a-Concurrent-Traffic-Simulation/src/Intersection.h
  /home/workspace/CppND-Program-a-Concurrent-Traffic-Simulation/src/Street.h
+ /home/workspace/CppND-Program-a-Concurrent-Traffic-Simulation/src/TrafficLight.h
  /home/workspace/CppND-Program-a-Concurrent-Traffic-Simulation/src/TrafficObject.h
  /home/workspace/CppND-Program-a-Concurrent-Traffic-Simulation/src/TrafficSimulator-Final.cpp
  /home/workspace/CppND-Program-a-Concurrent-Traffic-Simulation/src/Vehicle.h
@@ -283,6 +287,7 @@ CMakeFiles/traffic_simulation.dir/src/TrafficSimulator-Final.cpp.o
 CMakeFiles/traffic_simulation.dir/src/Vehicle.cpp.o
  /home/workspace/CppND-Program-a-Concurrent-Traffic-Simulation/src/Intersection.h
  /home/workspace/CppND-Program-a-Concurrent-Traffic-Simulation/src/Street.h
+ /home/workspace/CppND-Program-a-Concurrent-Traffic-Simulation/src/TrafficLight.h
  /home/workspace/CppND-Program-a-Concurrent-Traffic-Simulation/src/TrafficObject.h
  /home/workspace/CppND-Program-a-Concurrent-Traffic-Simulation/src/Vehicle.cpp
  /home/workspace/CppND-Program-a-Concurrent-Traffic-Simulation/src/Vehicle.h

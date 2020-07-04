@@ -7,6 +7,9 @@
 #include <memory>
 #include "TrafficObject.h"
 
+// https://github.com/AbhishekRepos/CppND-Program-a-Concurrent-Traffic-Simulation/blob/master/src/Intersection.h
+#include "TrafficLight.h"
+
 // forward declarations to avoid include cycle
 class Street;
 class Vehicle;
@@ -54,6 +57,7 @@ private:
     std::vector<std::shared_ptr<Street>> _streets;   // list of all streets connected to this intersection
     WaitingVehicles _waitingVehicles; // list of all vehicles and their associated promises waiting to enter the intersection
     bool _isBlocked;                  // flag indicating wether the intersection is blocked by a vehicle
+    TrafficLight _trafficLight{}; // https://github.com/AbhishekRepos/CppND-Program-a-Concurrent-Traffic-Simulation/blob/master/src/Intersection.h
 };
 
 #endif
